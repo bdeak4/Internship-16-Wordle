@@ -4,6 +4,7 @@ import LetterInput from "./LetterInput";
 
 import { emptyWord } from "../../constants/word";
 import "./WordInput.css";
+import { focusPrev } from "../../utils/focus";
 
 const WordInput = ({ handleAction, autoFocus }) => {
   const [word, setWord] = useState(emptyWord);
@@ -15,8 +16,13 @@ const WordInput = ({ handleAction, autoFocus }) => {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAction(event, word);
+  };
+
   return (
-    <div className="word-input">
+    <form onSubmit={handleSubmit} className="word-input">
       {word.map((_, index) => (
         <LetterInput
           letter={word[index]}
@@ -26,13 +32,13 @@ const WordInput = ({ handleAction, autoFocus }) => {
         />
       ))}
       <button
-        className="word-action-button"
+        className="action-button"
         disabled={word.some((letter) => letter === "")}
-        onClick={(e) => handleAction(e, word)}
+        onKeyDown={(e) => e.key === "ArrowLeft" && focusPrev(e.target)}
       >
         &rarr;
       </button>
-    </div>
+    </form>
   );
 };
 

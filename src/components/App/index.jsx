@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import WordInput from "../WordInput";
+import Game from "../Game";
 import PlayerForm from "../PlayerForm";
 
 import { emptyPlayers } from "../../constants/players";
@@ -14,10 +14,7 @@ const App = () => {
       <h1>wordle</h1>
 
       {players.set ? (
-        <WordInput
-          handleAction={(e, word) => console.log(e, word)}
-          autoFocus={true}
-        />
+        <Game players={players} setPlayers={setPlayers} />
       ) : (
         <PlayerForm players={players} setPlayers={setPlayers} />
       )}

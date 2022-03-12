@@ -3,7 +3,7 @@
 }
 
 .letter-input,
-.word-action-button {
+.action-button {
   font-size: 40px;
   padding: 5px;
   margin: 5px;
@@ -19,7 +19,7 @@ input:focus {
   outline: 3px solid orangered;
 }
 
-.word-action-button {
+.action-button {
   cursor: pointer;
   flex-shrink: 0;
 }

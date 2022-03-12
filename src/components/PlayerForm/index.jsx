@@ -58,7 +58,7 @@ const PlayerForm = ({ players, setPlayers }) => {
 
       {error && <div className="form__error">{error}</div>}
 
-      <button type="submit" className="word-action-button">
+      <button type="submit" className="action-button">
         &rarr;
       </button>
     </form>
