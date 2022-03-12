@@ -1,7 +1,12 @@
+import WordInput from "../WordInput";
 import "./App.css";
 
-function App() {
-  return <div>app</div>;
-}
+const App = () => {
+  return (
+    <div>
+      <WordInput />
+    </div>
+  );
+};
 
 export default App;
