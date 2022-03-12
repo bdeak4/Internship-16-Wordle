@@ -1,6 +1,6 @@
 import { focusNext, focusPrev } from "../../utils/focus";
 
-const LetterInput = ({ letter, setLetter }) => {
+const LetterInput = ({ letter, setLetter, autoFocus }) => {
   const handleInput = (e) => {
     const key = e.key.toLowerCase();
 
@@ -23,6 +23,9 @@ const LetterInput = ({ letter, setLetter }) => {
       case "arrowright":
         focusNext(e.target);
         break;
+
+      default:
+        break;
     }
   };
 
@@ -33,6 +36,7 @@ const LetterInput = ({ letter, setLetter }) => {
       value={letter}
       onKeyDown={handleInput}
       onChange={() => null}
+      autoFocus={autoFocus}
     />
   );
 };

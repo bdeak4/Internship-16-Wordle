@@ -1,9 +1,12 @@
 import { useState } from "react";
+
 import LetterInput from "./LetterInput";
+
+import { emptyWord } from "../../constants/word";
 import "./WordInput.css";
 
-const WordInput = ({ handleAction }) => {
-  const [word, setWord] = useState(new Array(5).fill(""));
+const WordInput = ({ handleAction, autoFocus }) => {
+  const [word, setWord] = useState(emptyWord);
 
   const setLetter = (index, letter) => {
     setWord((prev) => {
@@ -18,6 +21,7 @@ const WordInput = ({ handleAction }) => {
         <LetterInput
           letter={word[index]}
           setLetter={(letter) => setLetter(index, letter)}
+          autoFocus={autoFocus && index === 0}
           key={index}
         />
       ))}
