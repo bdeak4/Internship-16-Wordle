@@ -2,10 +2,10 @@ import { useState } from "react";
 import LetterInput from "./LetterInput";
 import "./WordInput.css";
 
-const WordInput = () => {
+const WordInput = ({ handleAction }) => {
   const [word, setWord] = useState(new Array(5).fill(""));
 
-  const setLetter = (index) => (letter) => {
+  const setLetter = (index, letter) => {
     setWord((prev) => {
       prev[index] = letter;
       return [...prev];
@@ -13,18 +13,21 @@ const WordInput = () => {
   };
 
   return (
-    <div>
+    <div className="word-input">
       {word.map((_, index) => (
         <LetterInput
           letter={word[index]}
-          setLetter={setLetter(index)}
+          setLetter={(letter) => setLetter(index, letter)}
           key={index}
         />
       ))}
-      <br />
-      {word}
-      <br />
-      {word.some((letter) => letter === "") ? "not valid" : "valid"}
+      <button
+        className="word-action-button"
+        disabled={word.some((letter) => letter === "")}
+        onClick={(e) => handleAction(e, word)}
+      >
+        &rarr;
+      </button>
     </div>
   );
 };

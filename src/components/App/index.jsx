@@ -3,8 +3,8 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <WordInput />
+    <div className="app">
+      <WordInput handleAction={(e, word) => console.log(e, word)} />
     </div>
   );
 };
