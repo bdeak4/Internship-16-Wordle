@@ -7,7 +7,7 @@ import "./WordInput.css";
 import { focusPrev } from "../../utils/focus";
 
 const WordInput = ({ handleAction, autoFocus }) => {
-  const [word, setWord] = useState(emptyWord);
+  const [word, setWord] = useState(emptyWord());
 
   const setLetter = (index, letter) => {
     setWord((prev) => {
