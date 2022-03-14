@@ -3,19 +3,10 @@ import { letterState } from "../../constants/letter";
 import { wordEqual } from "../../utils/word";
 import WordInput from "../WordInput";
 
-const GuessWord = ({ currentPlayer, resultWord }) => {
+const GuessWord = ({ currentPlayer, resultWord, handleWon, handleLost }) => {
   const [results, setResults] = useState(new Array(6).fill([]));
 
   const checkWord = (index, word) => {
-    if (wordEqual(word, resultWord)) {
-      console.log("win!!");
-      setResults((prev) =>
-        prev.map((res) =>
-          res.length ? res : new Array(5).fill(letterState.grey)
-        )
-      );
-    }
-
     const res = word.map((letter, i) => {
       if (resultWord[i] === letter) {
         return letterState.green;
@@ -32,6 +23,19 @@ const GuessWord = ({ currentPlayer, resultWord }) => {
       prev[index] = res;
       return [...prev];
     });
+
+    if (wordEqual(word, resultWord)) {
+      setResults((prev) =>
+        prev.map((res) =>
+          res.length ? res : new Array(5).fill(letterState.grey)
+        )
+      );
+      handleWon();
+    }
+
+    if (index === results.length - 1) {
+      handleLost();
+    }
   };
 
   return (

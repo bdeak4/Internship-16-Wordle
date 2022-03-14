@@ -1,4 +1,4 @@
-const emptyPlayers = {
+const emptyPlayers = () => ({
   playerOne: {
     name: "",
     score: 0,
@@ -8,6 +8,6 @@ const emptyPlayers = {
     score: 0,
   },
   set: false,
-};
+});
 
 export { emptyPlayers };
