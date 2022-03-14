@@ -2,11 +2,10 @@ import { useState } from "react";
 
 import ChooseWord from "../ChooseWord";
 import GuessWord from "../GuessWord";
+import ScoreBoard from "../ScoreBoard";
 
 import { emptyWord } from "../../constants/word";
 import { wordEmpty } from "../../utils/word";
-import ScoreBoard from "../ScoreBoard";
-
 import "./Game.css";
 
 const Game = ({ players, incScore, resetGame, resetScore }) => {

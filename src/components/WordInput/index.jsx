@@ -3,8 +3,8 @@ import { useState } from "react";
 import LetterInput from "./LetterInput";
 
 import { emptyWord } from "../../constants/word";
-import "./WordInput.css";
 import { focusPrev } from "../../utils/focus";
+import "./WordInput.css";
 
 const WordInput = ({ handleAction, autoFocus, highlight = [] }) => {
   const [word, setWord] = useState(emptyWord());

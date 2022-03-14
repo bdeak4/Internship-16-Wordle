@@ -1,7 +1,9 @@
 import { useState } from "react";
+
+import WordInput from "../WordInput";
+
 import { letterState } from "../../constants/letter";
 import { wordEqual } from "../../utils/word";
-import WordInput from "../WordInput";
 
 const GuessWord = ({ currentPlayer, resultWord, handleWon, handleLost }) => {
   const [results, setResults] = useState(new Array(6).fill([]));
