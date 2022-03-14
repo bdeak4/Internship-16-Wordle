@@ -29,7 +29,7 @@ const Game = ({ players, setPlayers }) => {
       handleChooseWord={handleChooseWord}
     />
   ) : (
-    <GuessWord currentPlayer={currentPlayer} />
+    <GuessWord currentPlayer={currentPlayer} resultWord={resultWord} />
   );
 };
 

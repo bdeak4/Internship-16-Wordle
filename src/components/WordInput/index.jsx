@@ -6,7 +6,7 @@ import { emptyWord } from "../../constants/word";
 import "./WordInput.css";
 import { focusPrev } from "../../utils/focus";
 
-const WordInput = ({ handleAction, autoFocus }) => {
+const WordInput = ({ handleAction, autoFocus, highlight = [] }) => {
   const [word, setWord] = useState(emptyWord());
 
   const setLetter = (index, letter) => {
@@ -28,12 +28,13 @@ const WordInput = ({ handleAction, autoFocus }) => {
           letter={word[index]}
           setLetter={(letter) => setLetter(index, letter)}
           autoFocus={autoFocus && index === 0}
+          highlightClass={highlight.length ? highlight[index] : null}
           key={index}
         />
       ))}
       <button
         className="action-button"
-        disabled={word.some((letter) => letter === "")}
+        disabled={word.some((letter) => letter === "") || highlight.length}
         onKeyDown={(e) => e.key === "ArrowLeft" && focusPrev(e.target)}
       >
         &rarr;

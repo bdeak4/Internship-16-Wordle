@@ -1,6 +1,11 @@
 import { focusNext, focusPrev } from "../../utils/focus";
 
-const LetterInput = ({ letter, setLetter, autoFocus }) => {
+const LetterInput = ({
+  letter,
+  setLetter,
+  autoFocus,
+  highlightClass = null,
+}) => {
   const handleInput = (e) => {
     const key = e.key.toLowerCase();
 
@@ -32,11 +37,12 @@ const LetterInput = ({ letter, setLetter, autoFocus }) => {
   return (
     <input
       type="text"
-      className="letter-input"
+      className={`letter-input ${highlightClass}`}
       value={letter}
       onKeyDown={handleInput}
       onChange={() => null}
       autoFocus={autoFocus}
+      disabled={highlightClass !== null}
     />
   );
 };

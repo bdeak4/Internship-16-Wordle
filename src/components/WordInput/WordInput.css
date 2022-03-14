@@ -28,3 +28,12 @@ input:focus {
   opacity: 0.8;
   cursor: not-allowed;
 }
+
+.letter-green {
+  background-color: green;
+  color: white;
+}
+
+.letter-yellow {
+  background-color: yellow;
+}
